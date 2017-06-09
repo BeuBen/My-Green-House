@@ -1,10 +1,11 @@
-﻿using Constellation;
+using Constellation;
 using Constellation.Package;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 public class Donnee
 {
@@ -40,8 +41,8 @@ namespace WebTest
     {
         private Random rdn = new Random();
         private Capteur Rcapteur = new Capteur();
-     
-        
+
+
         static void Main(string[] args)
         {
             PackageHost.Start<Program>(args);
@@ -58,17 +59,20 @@ namespace WebTest
             Rcapteur.Niveau_eau.Value = rdn.Next(10, 30);
             Rcapteur.Température.Value = rdn.Next(10, 30);
 
-
-            while (PackageHost.IsRunning)
+            Task.Factory.StartNew(() =>
             {
-                //STATE OBJECT CAPTEURS
-                PackageHost.PushStateObject("Résultats Capteurs",Rcapteur,lifetime: PackageHost.GetSettingValue<int>("Interval")+4 ); 
-                
+                while (PackageHost.IsRunning)
+                {
+                   //STATE OBJECT CAPTEURS
+                   PackageHost.PushStateObject("Résultats Capteurs", Rcapteur, lifetime: PackageHost.GetSettingValue<int>("Interval") + 4);
 
-                //STATE OBJECT
-                //Un state object expire si après 4 seconde de son intervale il n'est pas mis à jour. C'est un choix arbitraire
-                Thread.Sleep(PackageHost.GetSettingValue<int>("Interval"));
-            }
+
+                   //STATE OBJECT
+                   //Un state object expire si après 4 seconde de son intervale il n'est pas mis à jour. C'est un choix arbitraire
+                   Thread.Sleep(PackageHost.GetSettingValue<int>("Interval"));
+                }
+            });
+
         }
     }
 }
