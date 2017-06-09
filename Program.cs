@@ -53,23 +53,24 @@ namespace WebTest
             PackageHost.WriteInfo("Package starting - IsRunning: {0} - IsConnected: {1}", PackageHost.IsRunning, PackageHost.IsConnected);
             PackageHost.WriteInfo("Je suis le package nommé {0} version {1}", PackageHost.PackageName, PackageHost.PackageVersion);
 
-            //Mettre les valeurs des capteurs dans la classe   
-            Rcapteur.Humidité.Value = rdn.Next(10, 30);
-            Rcapteur.Luminosité.Value = rdn.Next(10, 30);
-            Rcapteur.Niveau_eau.Value = rdn.Next(10, 30);
-            Rcapteur.Température.Value = rdn.Next(10, 30);
+
 
             Task.Factory.StartNew(() =>
             {
                 while (PackageHost.IsRunning)
                 {
-                   //STATE OBJECT CAPTEURS
-                   PackageHost.PushStateObject("Résultats Capteurs", Rcapteur, lifetime: PackageHost.GetSettingValue<int>("Interval") + 4);
+                    //Mettre les valeurs des capteurs dans la classe   
+                    Rcapteur.Humidité.Value = rdn.Next(10, 30);
+                    Rcapteur.Luminosité.Value = rdn.Next(10, 30);
+                    Rcapteur.Niveau_eau.Value = rdn.Next(10, 30);
+                    Rcapteur.Température.Value = rdn.Next(10, 30);
 
-
-                   //STATE OBJECT
-                   //Un state object expire si après 4 seconde de son intervale il n'est pas mis à jour. C'est un choix arbitraire
-                   Thread.Sleep(PackageHost.GetSettingValue<int>("Interval"));
+                    //STATE OBJECT CAPTEURS
+                    PackageHost.PushStateObject("Résultats Capteurs", Rcapteur, lifetime: PackageHost.GetSettingValue<int>("Interval") + 4000);
+                    
+                    //STATE OBJECT
+                    //Un state object expire si après 4 seconde de son intervale il n'est pas mis à jour. C'est un choix arbitraire
+                    Thread.Sleep(PackageHost.GetSettingValue<int>("Interval"));
                 }
             });
 
