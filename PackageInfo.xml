@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Package xmlns="http://schemas.myconstellation.io/Constellation/1.8/PackageManifest"
-         Name="TestWeb"
+         Name="Simu_State_Object"
          Version="1.0"
-         Author="Drake"
+         Author="ISEN"
          URL="http://www.mywebsite.com"
-         Description="Tout droit réservé au meilleur d'entre nous : Florian"
+         Description="Simu_State_Object Copyright ©  2017"
          EnableControlHub="false">
   <Compatibility constellationVersion="1.8" dotNetTargetPlatform="net40">
     <Platforms>
@@ -15,4 +15,4 @@
   <Settings>
     <Setting name="Interval" type="Int32" defaultValue="1000" description="Intervale d'actualisation des paramètres de la serre" />
   </Settings>
-</Package>>
+</Package>
