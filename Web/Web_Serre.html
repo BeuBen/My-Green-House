@@ -100,11 +100,8 @@
 									</select>
 								</div>
 								<br />
-								<label>Position dans la serre :</label>
-								<input type="number" class="form-control" name="pos" required ng-model="select_position">
-								<br />
-								<label>Nombre de plants :</label>
-								<input type="number" class="form-control" name="nbr" required ng-model="select_nbr_plants">
+								<label>Position dans la serre :<input type="number" class="form-control" name="pos_x2" placeholder="ligne" required><input type="number" class="form-control" name="pos_y2" placeholder="colonne" required></label>
+								<label>Nombre de plants :<input type="number" class="form-control" name="nbr" placeholder="ex : 30"required></label>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="add_SelectedPlante(PlanteNom,select_nom,select_position_x,select_position_y,select_nbr_plants)">Valider</button>
@@ -124,36 +121,16 @@
 							</div>
 							<div class="modal-body">
 								<p><u>Veuillez entrer les caractéristiques de la plante :</u></p>
-								<label>Nom :</label>
-								<input type="text" class="form-control" name="nom" required>
-								<br />
-								<label>Position dans la serre :</label>
-								<input type="number" class="form-control" name="pos" required>
-								<br />
-								<label>Nombre de plants :</label>
-								<input type="number" class="form-control" name="nbr" required>
-								<br />
-								<br />
-								<label>Image (Optionnel) :</label>
-								<input type="file" name="nom" />
-								<br />
-								<br />
+								<label>Nom :<input type="text" class="form-control" name="nom" placeholder="ex : tomates" required></label>
+								<label>Position dans la serre :<input type="number" class="form-control" name="pos_x" placeholder="ligne" required><input type="number" class="form-control" name="pos_y" placeholder="colonne" required></label>
+								<label>Nombre de plants :<input type="number" class="form-control" name="nbr" placeholder="ex : 30" required></label>
+								<label>Image (Optionnel) :<input type="file" name="nom" /></label>
 								<p><u>Maintenant les détails nécessaires à la pousse :</u></p>
-								<br />
-								<label>Luminosité (Lux) (Optionnel) :</label>
-								<input type="number" class="form-control" name="lum">
-								<br />
-								<label>Température (°C) (Optionnel) :</label>
-								<input type="number" class="form-control" name="temp">
-								<br />
-								<label>Humidité (%) (Optionnel) :</label>
-								<input type="number" class="form-control" name="hum">
-								<br />
-								<label>Besoin en eau (L) (Optionnel) :</label>
-								<input type="number" class="form-control" name="eau">
-								<br />
-								<label>Maturation (Jours) (Optionnel) :</label>
-								<input type="number" class="form-control" name="mat">
+								<label>Luminosité (Lux) (Optionnel) :<input type="number" class="form-control" name="lum"></label>
+								<label>Température (°C) (Optionnel) :<input type="number" class="form-control" name="temp"></label>
+								<label>Humidité (%) (Optionnel) :<input type="number" class="form-control" name="hum"></label>
+								<label>Besoin en eau (L) (Optionnel) :<input type="number" class="form-control" name="eau"></label>
+								<label>Maturation (Jours) (Optionnel) :<input type="number" class="form-control" name="mat"></label>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Valider</button>
@@ -173,8 +150,7 @@
 							</div>
 							<div class="modal-body">
 								<p><u>Veuillez entrer la position dans la serre :</u></p>
-								<label>Position :</label>
-								<input type="number" class="form-control" name="pos" required>
+								<label>Position :<input type="number" class="form-control" name="pos_x1" placeholder="ligne" required><input type="number" class="form-control" name="pos_y1" placeholder="colonne" required></label>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Valider</button>
